@@ -1,0 +1,39 @@
+<div class="post-wrapper">
+  <div class="post-header">
+    <mat-icon class="large-icon">person</mat-icon>
+    <div class="post-info">
+      <span>New User</span>
+      <span>{{dateFormat(post.hour.toLocaleString())}}</span>
+    </div>
+    <span class="space-wrapper"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="editPost()">
+        <mat-icon>edit</mat-icon>Edit
+      </button>
+      <button mat-menu-item (click)="deletePost()">
+        <mat-icon>delete</mat-icon>Delete
+      </button>
+    </mat-menu>
+  </div>
+  <div class="post-content">
+    <ng-container *ngIf="!isEditing">
+      <ng-container *ngFor="let word of wordsInPost">
+        <span *ngIf="!word.includes('%')">{{word}}</span>
+        <employee *ngIf="word.includes('%')" [id]="getIdInWord(word)" [field]="getFieldInWord(word)"></employee>
+        &nbsp;
+      </ng-container>
+    </ng-container>
+    <div class="post-form" *ngIf="isEditing">
+      <mat-form-field appearance="outline">
+        <textarea matInput [(ngModel)]="isEditingText" cdkTextareaAutosize></textarea>
+      </mat-form-field>
+      <div class="post-actions">
+        <button mat-button (click)="isEditing = false">Cancel</button>
+        <button mat-button color="primary" (click)="confirmEdit()">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>

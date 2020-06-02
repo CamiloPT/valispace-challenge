@@ -1,0 +1,41 @@
+<!--WELCOME PAGE-->
+<section class="section background-image">
+  <div class="wrapper center-middle">
+    <h1 class="title">Welcome to ValiBook</h1>
+    <h4 class="subtitle">What are you thinking?</h4>
+    <button mat-raised-button color="primary" class="new-post" (click)="openNewPost()">New post</button>
+  </div>
+</section>
+
+<!--POSTS-->
+<section class="section">
+  <div class="wrapper">
+    <h1 class="subtitle primary">POSTS</h1>
+    <p *ngIf="posts.length ===0">Nothing to see here</p>
+    <post *ngFor="let post of posts" [post]="post" (delete)="deletePost($event)">
+      <!-- <div [innerHTML]="post.text | noSanitize"></div> (This was my initial approach for the problem of save the posts as <employee></employee> instead of @maria)--> 
+    </post>
+  </div>
+</section>
+
+<!--NEW POST DIALOG TEMPLATE (I could do this in another component but i prefer to pass a template for the angular material dialog service)-->
+<ng-template #dialog>
+  <h1 mat-dialog-title>New publication</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="newPost">
+      <mat-form-field [ngClass]="'dialog-form'" appearance="outline">
+        <mat-label>What are you thinking?</mat-label>
+        <textarea matInput formControlName="postText" cdkTextareaAutosize [matAutocomplete]="auto" [matAutocompleteDisabled]="true"></textarea>
+      </mat-form-field>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)">
+        <mat-option *ngFor="let option of filterOptions | async" [value]="option" (onSelectionChange)="optionSelectionChange($event)">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">No Thanks</button>
+    <button mat-button color="primary" [mat-dialog-close]="newPost" cdkFocusInitial>Publish</button>
+  </div>
+</ng-template>

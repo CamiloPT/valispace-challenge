@@ -1,0 +1,14 @@
+<span class="employee">
+    <span *ngIf="field === 'username'">@</span>
+    <span *ngIf="field === 'phone'">#</span>
+    <span>{{user[field]}}</span>
+</span>
+
+<ng-template #detail>
+    <div class="tooltip-detail">
+        <p>Username: {{user.username}}</p>
+        <p>Role: {{user.role}}</p>
+        <p>Name: {{user.name}}</p>
+        <p>Phone: {{user.phone}}</p>
+    </div>
+</ng-template>

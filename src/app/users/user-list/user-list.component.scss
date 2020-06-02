@@ -1,0 +1,17 @@
+table {
+    width:100%;
+    max-width: 800px;
+    th {
+        font-size: 14px;
+    }
+}
+
+.users-wrapper {
+    padding: 40px;
+    .new-user {
+        margin-bottom: 40px;
+    }
+}
+.td-right {
+    text-align: right;
+}

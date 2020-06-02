@@ -1,0 +1,37 @@
+<form class="wrapper user-wrapper " [formGroup]="userForm">
+  <mat-card class="create-user-card">
+    <mat-card-header>
+      <mat-card-title *ngIf="!userForm.controls.id">New User</mat-card-title>
+      <mat-card-title *ngIf="userForm.controls.id">Edit {{userForm.controls.name.value}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="create-user-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="userForm.controls.username.errors">{{getErrorMessage(userForm.controls.username)}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="userForm.controls.phone.errors">{{getErrorMessage(userForm.controls.phone)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Role</mat-label>
+          <input matInput formControlName="role" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="userForm.controls.role.errors">{{getErrorMessage(userForm.controls.role)}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="userForm.controls.name.errors">{{getErrorMessage(userForm.controls.name)}}</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" type="submit" (click)="confirmUser()">Confirm</button>
+      <button mat-button color="warn" (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
