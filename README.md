@@ -6,22 +6,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Path ‘/admin’
+# Path ‘/admin’
 This path will enable the user to add, edit and remove employees from a database.
 
-# Requirements:
+## Requirements:
 - All fields (see below) are required;
 - ID and Phone are unique;
 - ID cannot be changed but all the other values can;
 Optional requirements:
 - Username is only valid with the format [\w-_]+
 
-## Path ‘/’
+# Path ‘/’
 On this path we want to create, edit and remove posts. Similar to the Facebook timeline, on
 the top you have the ability to create a new post and below the list of previous posts is
 shown ordered by date.
 
-# Requirements:
+## Requirements:
 - By typing ‘@’ inside a new post there should popup an autocomplete to help user
 select an employee to refer in the post;
 - When changing the username of an employee, it should reflect in already created
