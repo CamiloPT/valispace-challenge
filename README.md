@@ -6,22 +6,42 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Path ‘/admin’
+This path will enable the user to add, edit and remove employees from a database.
+Requirements:
+- All fields (see below) are required;
+- ID and Phone are unique;
+- ID cannot be changed but all the other values can;
+Optional requirements:
+- Username is only valid with the format [\w-_]+
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Path ‘/’
+On this path we want to create, edit and remove posts. Similar to the Facebook timeline, on
+the top you have the ability to create a new post and below the list of previous posts is
+shown ordered by date.
+Requirements:
+- By typing ‘@’ inside a new post there should popup an autocomplete to help user
+select an employee to refer in the post;
+- When changing the username of an employee, it should reflect in already created
+posts. A possible solution is saving the text of the post as <employee id=”1”
+field=”username”></employee> instead of @mathilde, or # 992312312;
+Optional requirements:
+- By typing ‘#’ it should popup an autocomplete to help user select the phone number;
+- Inside the post, when hovering the username or name of an employee a popup
+should show with the full details of that employee (name, username, phone, role);
+- Possibility to edit already posted messages.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Requirements for path “/admin”:
+(X) 1) User can add, edit and remove employees;
+(X) 2) All fields (ID, username, phone, role, name) are required;
+(X) 3) ID and Phone are unique;
+(X) 4) ID cannot be changed but all the other values can;
+Requirements for path “/” for posts at “/”:
+(X) 1) Users can add posts on a timeline;
+(X) 2) By typing ‘@’ inside a post an autocomplete should pop up to help user select an
+employee;
+(X) 3) When changing the username of an employee, it should reflect in already created
+posts. A possible solution is saving the text of the post as <employee id=”1”
+field=”username”></employee> instead of @mathilde, or # 992312312;
+(X) All data is saved and retrieved by services;
+(X) Although you can use external libraries, you managed to get it to work by yourself.
