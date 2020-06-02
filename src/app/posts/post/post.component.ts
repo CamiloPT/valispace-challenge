@@ -45,13 +45,6 @@ export class PostComponent implements OnInit {
         return new Date(date).toLocaleDateString()+ '; ' + new Date(date).toLocaleTimeString() ;
     }
 
-    // @HostListener('document:click', ['$event']) 
-    // clickout(){
-    //     if(this.isEditing && !this.eRef.nativeElement.contains(event.target)) {
-    //         this.isEditing = false;
-    //     }
-    // }
-
     getIdInWord(value: string): number {
         if(value.includes('@'))
             return +value.replace('@%','');
