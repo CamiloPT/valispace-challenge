@@ -31,17 +31,18 @@ Optional requirements:
 should show with the full details of that employee (name, username, phone, role);
 - Possibility to edit already posted messages.
 
-Requirements for path “/admin”:
-(X) 1) User can add, edit and remove employees;
-(X) 2) All fields (ID, username, phone, role, name) are required;
-(X) 3) ID and Phone are unique;
-(X) 4) ID cannot be changed but all the other values can;
-Requirements for path “/” for posts at “/”:
-(X) 1) Users can add posts on a timeline;
-(X) 2) By typing ‘@’ inside a post an autocomplete should pop up to help user select an
+## Requirements for path “/admin”:
+- (X) 1) User can add, edit and remove employees;
+- (X) 2) All fields (ID, username, phone, role, name) are required;
+- (X) 3) ID and Phone are unique;
+- (X) 4) ID cannot be changed but all the other values can;
+
+## Requirements for path “/” for posts at “/”:
+- (X) 1) Users can add posts on a timeline;
+- (X) 2) By typing ‘@’ inside a post an autocomplete should pop up to help user select an
 employee;
-(X) 3) When changing the username of an employee, it should reflect in already created
+- (X) 3) When changing the username of an employee, it should reflect in already created
 posts. A possible solution is saving the text of the post as <employee id=”1”
 field=”username”></employee> instead of @mathilde, or # 992312312;
-(X) All data is saved and retrieved by services;
-(X) Although you can use external libraries, you managed to get it to work by yourself.
+- (X) All data is saved and retrieved by services;
+- (X) Although you can use external libraries, you managed to get it to work by yourself.
